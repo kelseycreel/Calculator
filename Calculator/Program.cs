@@ -7,7 +7,7 @@ namespace Calculator
         static void Main(string[] args)
         {
             // Multiplication
-            Console.WriteLine("I hope you're ready to math today! Type in * to multiply, ^ to square, / to divide, and + to add the comma separated numbers (NO SPACES): *1,2,3");
+            Console.WriteLine("I hope you're ready to math today! Type in * to multiply, ^ to square, @ to average, / to divide, and + to add the comma separated numbers (NO SPACES): *1,2,3");
             var input = Console.ReadLine();
             var inputSymbol = input[0];
             var inputToUse = input.Remove(0, 1);
@@ -59,6 +59,22 @@ namespace Calculator
                         sum /= int.Parse($"{num}");
                     }
                 }
+                Console.WriteLine(sum);
+                Console.ReadKey();
+            }
+            // Average
+            else if (input.Contains('@'))
+            {
+                var output = "";
+                foreach (var num in numbers)
+                {
+                    var newNum = int.Parse($"{num}");
+                    sum *= newNum;
+                    sum = sum / 2;
+                    output = ($"{sum.ToString()}");
+                }
+                Console.WriteLine(output);
+                Console.ReadKey();
                 Console.WriteLine(sum);
                 Console.ReadKey();
             }
